@@ -1,0 +1,77 @@
+<!doctype html>
+
+<html>
+
+    <head>
+
+			<title>  Mr L. Tingye Shop </title>
+		
+        <style>
+			img {width:300px;
+				}
+			input {width:20px;
+			}
+        </style>
+        <script>
+			 function calculate(){
+		     var price1 = parseFloat(document.getElementById("q1").value);
+			 var price2 = parseFloat(document.getElementById("q2").value);
+			 var price3 = parseFloat(document.getElementById("q3").value);
+			 var output = document.getElementById("output");
+			 var cprice1 = 39.99
+			 var cprice2 = 79.99
+			 var cprice3 = 59.99
+			 var quantity = (price1+price2+price3);
+			 var costtotal = (cprice1 + cprice2 + cprice3);
+			 var subtotal = Math.round((price1 * 39.99) + (price2 * 79.99) + (price3 * 59.99));
+			 var tax = Math.round(subtotal*0.0875);
+			 var shipping = 0;
+			     if (subtotal < 100){
+				 shipping += 25
+				 }
+				 else if (subtotal < 200){
+				 shipping += 10
+				 }
+				 else{
+				 shipping += 0
+				 }
+				 var total = (subtotal + tax + shipping);
+				 var profit = Math.round((subtotal - costtotal));
+				 output.innerHTML = "The Amount of Items Sold is: " + quantity + "<br>" + "The Subtotal is: $" + 
+				 subtotal + "<br>" + "The Tax is: $" + tax + "<br>" + 
+				 "The Shipping Cost is: $" + shipping + "<br>" + "The Total is: $" + total +
+				 "<br>" + "The Profit is: $" + profit + "<br>";
+				 }
+				
+		
+        </script>
+
+    </head>
+
+    <body>
+		<div>
+			<h2> T-shirt </h2>
+		   <img src="T-shirt 1.jpg" ><br>
+		   <span id="price1">Price:$19.99 </span>
+		   <p> Awesome CTE T-shirt...Last one hurry up... </p>
+		   Quantity:<input type="text" id="q1">
+		   <h2> Jacket  </h2>
+		   <img src="jacket 1.jpg" ><br>
+		   <span id="price2">Price:$49.99 </span>
+		   <p> Lain Zip Bomber Jacket </p>
+		   Quantity:<input type="text" id="q2">
+		   <h2> sweatshirt </h2>
+		   <img src="sweatshirt 1.jpg" ><br>
+		   <span id="price3">Price:$29.99 </span>
+		   <p> Round Neck Varsity-Striped Sweatshirt </p>
+		   Quantity:<input type="text" id="q3">
+		   
+		</div>
+		<button onclick="calculate()">Check Out</button>
+		<div id="output"></div>
+			
+			
+		</div>
+    </body>
+
+</html>
